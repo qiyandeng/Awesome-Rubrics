@@ -1,0 +1,360 @@
+---
+sidebar_position: 2
+title: Paper List
+description: An annotated, taxonomy-grouped reading list for rubric research.
+---
+
+import {PaperCard, PaperGroup} from '@site/src/components/PaperCard';
+import {PaperTable} from '@site/src/components/PaperTable';
+
+export const papers = [
+  {
+    title: "Checklists Are Better Zero-Shot Evaluators",
+    href: "https://arxiv.org/abs/2410.22395",
+    org: "Carnegie Mellon",
+    year: "2024",
+    usage: "Rubric as Reward",
+    stage: "Training-Time",
+  },
+  {
+    title: "Training AI Co-Scientists to be Better at Reasoning",
+    href: "https://arxiv.org/abs/2502.01822",
+    org: "Meta AI",
+    year: "2025",
+    usage: "",
+    stage: "",
+  },
+  {
+    title: "HealthBench: Evaluating Large Language Models Towards Improved Human Health",
+    href: "https://openai.com/index/healthbench/",
+    org: "OpenAI",
+    year: "2025",
+    usage: "",
+    stage: "",
+  },
+  {
+    title: "PRBench: A Large-Scale Benchmark for Pull Request Review",
+    href: "https://arxiv.org/abs/2503.16989",
+    org: "Scale AI",
+    year: "2025",
+    usage: "",
+    stage: "",
+  },
+  {
+    title: "AdaRubric: Task-Adaptive Rubric Generation",
+    href: "https://arxiv.org/abs/2503.03190",
+    org: "Alibaba Group",
+    year: "2025",
+    usage: "生成 DPO Pair",
+    stage: "",
+  },
+  {
+    title: "Configurable Preference Optimization with Rubric-Based Evaluation",
+    href: "https://arxiv.org/abs/2412.01233",
+    org: "komorebi.ai",
+    year: "2024",
+    usage: "生成 DPO Pair",
+    stage: "Training-Time",
+  },
+  {
+    title: "Rubrics as Rewards: Reinforcement Learning with LLM-Evaluated Criteria",
+    href: "https://arxiv.org/abs/2502.07374",
+    org: "Scale AI",
+    year: "2025",
+    usage: "Rubric as Reward",
+    stage: "Training-Time",
+  },
+  {
+    title: "AutoRubric: Unifying Rubric Generation and Feedback",
+    href: "https://arxiv.org/abs/2501.12826",
+    org: "University of Pennsylvania",
+    year: "2025",
+    usage: "Rubric as Feedback",
+    stage: "",
+  },
+  {
+    title: "Alternating Reinforcement Learning from Human Feedback with Rubric-Driven Criteria",
+    href: "https://arxiv.org/abs/2406.02252",
+    org: "Emory University",
+    year: "2024",
+    usage: "Rubric Generator",
+    stage: "",
+  },
+  {
+    title: "Agentic Rubrics as Context-Sensitive Reward for LLM Alignment",
+    href: "https://arxiv.org/abs/2502.06735",
+    org: "Scale AI",
+    year: "2025",
+    usage: "Rubric Select Ans",
+    stage: "Test-Time Scaling",
+  },
+  {
+    title: "Automated Rubrics for Essay Scoring via Reflect-and-Revise",
+    href: "https://arxiv.org/abs/2407.11203",
+    org: "University College London",
+    year: "2024",
+    usage: "Generate Rubrics",
+    stage: "Test",
+  },
+  {
+    title: "SedarEval: Automated Evaluation using Self-Adaptive Rubrics",
+    href: "https://arxiv.org/abs/2504.00804",
+    org: "Xiaohongshu",
+    year: "2025",
+    usage: "Generate Rubrics",
+    stage: "Test",
+  },
+  {
+    title: "LLM-RUBRIC: A Multidimensional, Calibrated Approach to Automated Evaluation",
+    href: "https://arxiv.org/abs/2310.14424",
+    org: "Microsoft",
+    year: "2023",
+    usage: "Rubric Generator",
+    stage: "Test",
+  },
+  {
+    title: "RubricEval: A Rubric-Based LLM Evaluation Framework",
+    href: "https://arxiv.org/abs/2410.14086",
+    org: "蚂蚁集团",
+    year: "2024",
+    usage: "",
+    stage: "",
+  },
+  {
+    title: "Learning Query-Specific Rubrics for Open-Ended Evaluation",
+    href: "https://arxiv.org/abs/2407.01279",
+    org: "腾讯",
+    year: "2024",
+    usage: "",
+    stage: "",
+  },
+  {
+    title: "An Efficient Rubric-based Evaluation Paradigm for LLMs",
+    href: "https://arxiv.org/abs/2503.02994",
+    org: "两非智能",
+    year: "2025",
+    usage: "",
+    stage: "",
+  },
+];
+
+# Paper List
+
+An overview table followed by taxonomy-grouped annotations.
+Click any row in the table to open the source link directly; expand the cards below for detailed notes.
+
+## Overview
+
+<PaperTable papers={papers} />
+
+---
+
+## Annotated Reading List
+
+<PaperGroup
+  label="Generation strategy"
+  title="Direct Generation"
+  description="Generate rubrics directly from the task description, scoring goals, and a few examples.">
+
+<PaperCard
+  title="Learning to Judge: LLMs Designing and Applying Evaluation Rubrics"
+  href="https://scholar.google.com/scholar?q=Learning+to+Judge+LLMs+Designing+Evaluation+Rubrics"
+  venue="Preprint"
+  year="2024"
+  type="Method"
+  idea="Treats rubric generation as a conditional generation problem: task description and scoring target go in, a query-specific rubric comes out."
+  why="Establishes a baseline for automatic, query-conditioned rubric generation and shows where direct LLM generation struggles in specialized domains."
+  tags={['Direct generation', 'Query-specific', 'LLM-as-judge']}
+/>
+
+<PaperCard
+  title="AdaRubric: Task-Adaptive Rubric Generation"
+  href="https://arxiv.org/abs/2503.03190"
+  org="Alibaba Group"
+  year="2025"
+  type="Method"
+  idea="Adaptive rubric generation framework that adjusts criteria to the current task and scoring context."
+  why="Illustrates how to push beyond a single static rubric toward task-aware criteria selection."
+  tags={['Direct generation', 'Adaptive']}
+/>
+
+</PaperGroup>
+
+<PaperGroup
+  label="Generation strategy"
+  title="Retrieval-Augmented Generation"
+  description="Retrieve similar tasks or domain rubrics first, and then generate the rubric for the current task.">
+
+<PaperCard
+  title="RubricRAG: Towards Interpretable and Reliable LLM Evaluation via Domain Knowledge Retrieval for Rubric Generation"
+  href="https://scholar.google.com/scholar?q=RubricRAG+Domain+Knowledge+Retrieval+Rubric+Generation"
+  year="2024"
+  type="Method"
+  idea="Augments rubric generation with retrieved domain knowledge or rubric exemplars before asking the model to produce the final criteria."
+  why="Addresses the shallowness of direct generation in professional domains where domain knowledge is essential."
+  tags={['RAG', 'Domain knowledge', 'Interpretable evaluation']}
+/>
+
+</PaperGroup>
+
+<PaperGroup
+  label="Generation strategy"
+  title="Preference-Driven Extraction"
+  description="Rather than writing rubrics by hand, infer explicit criteria from preference pairs, judge data, or reward modeling signals.">
+
+<PaperCard
+  title="Auto-Rubric: Learning to Extract Generalizable Criteria for Reward Modeling"
+  href="https://scholar.google.com/scholar?q=Auto-Rubric+Generalizable+Criteria+Reward+Modeling"
+  year="2024"
+  type="Method"
+  idea="Reverse-engineers rubric criteria from preference pairs and reward modeling data so that criteria reflect what humans actually prefer."
+  why="Connects rubric construction with reward modeling and alignment pipelines, bridging evaluation and training-time signals."
+  tags={['Preference-driven', 'Reward modeling', 'Criteria extraction']}
+/>
+
+</PaperGroup>
+
+<PaperGroup
+  label="Generation strategy"
+  title="Refinement and Decomposition"
+  description="Do not generate a rubric from scratch; instead decompose, rewrite, and de-bias an existing rubric.">
+
+<PaperCard
+  title="Rethinking Rubric Generation for Improving LLM Judge and Reward Modeling for Open-ended Tasks"
+  href="https://scholar.google.com/scholar?q=Rethinking+Rubric+Generation+LLM+Judge+Reward+Modeling+Open-ended"
+  year="2024"
+  type="Method"
+  idea="Reframes rubric generation as decomposition and rewriting: split coarse rubrics into finer atomic criteria and reduce redundancy."
+  why="Shows that rubric quality for open-ended tasks often depends more on decomposition than on the original draft."
+  tags={['Decomposition', 'Atomic criteria', 'Open-ended tasks']}
+/>
+
+<PaperCard
+  title="Automated Refinement of Essay Scoring Rubrics via Reflect-and-Revise"
+  href="https://arxiv.org/abs/2407.11203"
+  org="University College London"
+  year="2024"
+  type="Method"
+  idea="Iteratively refines a rubric by analyzing disagreement with human scores and rewriting the criteria accordingly."
+  why="Treats rubric design as prompt optimization guided by human-model disagreement."
+  tags={['Refinement', 'Human feedback', 'Essay scoring']}
+/>
+
+<PaperCard
+  title="iRULER: Iterative Rubric Refinement"
+  href="https://scholar.google.com/scholar?q=iRULER+iterative+rubric+refinement"
+  year="2024"
+  type="Method"
+  idea="Iteratively revises evaluation criteria based on feedback signals and observed judging errors."
+  why="Provides a general template for feedback-driven rubric refinement beyond a single dataset."
+  tags={['Iterative refinement', 'Judge calibration']}
+/>
+
+</PaperGroup>
+
+<PaperGroup
+  label="Generation strategy"
+  title="Human-in-the-Loop and Expert-Authored Rubrics"
+  description="Rely on experts or expert-labeled rubrics, often supplemented by model-based generators for scale.">
+
+<PaperCard
+  title="HealthBench: Evaluating Large Language Models Towards Improved Human Health"
+  href="https://openai.com/index/healthbench/"
+  authors="OpenAI"
+  venue="OpenAI"
+  year="2025"
+  type="Benchmark"
+  idea="Uses expert-authored rubrics with explicit items, scores, descriptions, and failure conditions for health-related LLM evaluation."
+  why="Strong example of why high-stakes domains require expert-defined rubrics with codebook-level detail."
+  tags={['Expert rubrics', 'Healthcare', 'Benchmark']}
+/>
+
+<PaperCard
+  title="Development of a Rubric for Assessing Delayed Diagnosis of Appendicitis, DKA, and Sepsis"
+  href="https://scholar.google.com/scholar?q=rubric+delayed+diagnosis+appendicitis+DKA+sepsis"
+  venue="Clinical study"
+  type="Clinical rubric"
+  idea="Builds a clinical rubric through a multi-specialty Delphi panel, with iterative scoring and a 75% agreement threshold."
+  why="Demonstrates how consensus-driven processes produce trustworthy rubrics for sensitive domains."
+  tags={['Delphi method', 'Consensus', 'Clinical evaluation']}
+/>
+
+<PaperCard
+  title="Measuring What Matters: Developing Human-Centered Legal Q-and-A Quality Standards through Multi-Stakeholder Research"
+  href="https://scholar.google.com/scholar?q=Measuring+What+Matters+Human-Centered+Legal+Q+and+A+Quality"
+  type="Rubric design"
+  idea="Involves legal experts, end users, and technical staff together when defining quality standards for legal AI answers."
+  why="Shows that rubric design for user-facing systems may require multi-stakeholder input, not just domain experts."
+  tags={['Multi-stakeholder', 'Legal AI', 'Human-centered']}
+/>
+
+<PaperCard
+  title="SedarEval: Automated Evaluation using Self-Adaptive Rubrics"
+  href="https://arxiv.org/abs/2504.00804"
+  authors="Xiaohongshu"
+  venue="Xiaohongshu"
+  year="2025"
+  type="Method"
+  idea="Trains a rubric generator from expert-labeled rubrics, then uses it to scale up rubric-based scoring."
+  why="Practical human-in-the-loop pipeline that balances expert quality with automation."
+  tags={['Human-in-the-loop', 'Generator', 'Self-adaptive']}
+/>
+
+<PaperCard
+  title="XpertBench: Expert-Level Tasks with Rubrics-Based Evaluation"
+  href="https://scholar.google.com/scholar?q=XpertBench+Expert-Level+Tasks+Rubrics-Based+Evaluation"
+  venue="ByteDance"
+  year="2024"
+  type="Benchmark"
+  idea="Benchmark suite of expert-level tasks where rubrics are the primary evaluation mechanism."
+  why="Provides a shared testbed for expert-level rubric-based evaluation across tasks."
+  tags={['Benchmark', 'Expert tasks', 'Rubric-based evaluation']}
+/>
+
+</PaperGroup>
+
+<PaperGroup
+  label="Setting"
+  title="General-Purpose vs Domain-Specific Rubrics"
+  description="Rubric design differs substantially between open-ended general tasks and specialized professional domains.">
+
+<PaperCard
+  title="LLM-RUBRIC: A Multidimensional, Calibrated Approach to Automated Evaluation"
+  href="https://arxiv.org/abs/2310.14424"
+  authors="Microsoft"
+  year="2023"
+  type="Framework"
+  idea="Treats rubric evaluation as a multi-dimensional scoring problem where human judges themselves disagree, and models this disagreement explicitly."
+  why="Motivates rubric designs that tolerate and model judge disagreement rather than assuming a single ground truth score."
+  tags={['General-purpose', 'Disagreement modeling', 'Multi-dimensional']}
+/>
+
+</PaperGroup>
+
+## How to add a new paper
+
+**Overview table** — add an object to the `papers` array at the top of this file:
+
+```js
+{
+  title: "Paper Title",
+  href:  "https://arxiv.org/abs/xxxx",
+  org:   "Institution",
+  year:  "2025",
+  usage: "Rubric as Reward",   // tag for 如何使用 Rubrics
+  stage: "Training-Time",      // tag for 按模型训练阶段
+}
+```
+
+**Annotated card** — add a `<PaperCard>` inside the matching `<PaperGroup>`:
+
+```mdx
+<PaperCard
+  title="…"
+  href="…"
+  venue="…" year="…" type="…"
+  idea="…"
+  why="…"
+  tags={['…']}
+/>
+```

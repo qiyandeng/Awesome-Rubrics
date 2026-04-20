@@ -1,0 +1,375 @@
+/* ── Group ─────────────────────────────────────────────── */
+
+.group {
+  margin: 2.5rem 0;
+}
+
+.groupHeader {
+  margin-bottom: 1rem;
+}
+
+.groupLabel {
+  margin: 0 0 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ifm-color-primary);
+}
+
+.groupTitle {
+  margin: 0 0 0.5rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.4rem;
+  letter-spacing: -0.01em;
+  color: #0f172a;
+}
+
+.groupDescription {
+  max-width: 780px;
+  margin: 0;
+  color: #475569;
+  line-height: 1.7;
+}
+
+/* ── List ───────────────────────────────────────────────── */
+
+.list {
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.entry {
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  transition: background 0.2s ease;
+}
+
+.entry:first-child {
+  border-top: none;
+}
+
+.entryOpen {
+  background: #f8fafc;
+}
+
+/* ── Row grid ───────────────────────────────────────────── */
+
+.row {
+  display: grid;
+  grid-template-columns:
+    18px             /* chevron */
+    minmax(0, 420px) /* title */
+    180px            /* meta */
+    160px            /* tags */
+    32px;            /* link icon */
+  align-items: center;
+  column-gap: 0.85rem;
+  padding: 0.7rem 0.85rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.row:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: -2px;
+  border-radius: 3px;
+}
+
+.entry:hover .cellTitle {
+  color: var(--ifm-color-primary);
+}
+
+/* ── Chevron ────────────────────────────────────────────── */
+
+.cellChevron {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chevron {
+  color: #94a3b8;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              color 0.15s ease;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+  color: var(--ifm-color-primary);
+}
+
+/* ── Title ──────────────────────────────────────────────── */
+
+.cellTitle {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: #0f172a;
+  line-height: 1.4;
+  transition: color 0.15s ease,
+              white-space 0s 0.01s; /* delay prevents flicker on close */
+}
+
+/* Full title when expanded */
+.entryOpen .cellTitle {
+  overflow: visible;
+  text-overflow: unset;
+  white-space: normal;
+}
+
+/* ── Meta ───────────────────────────────────────────────── */
+
+.cellMeta {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.82rem;
+  color: #64748b;
+  font-variant-numeric: tabular-nums;
+  transition: opacity 0.2s ease;
+}
+
+.entryOpen .cellMeta {
+  overflow: visible;
+  text-overflow: unset;
+  white-space: normal;
+}
+
+.metaDot {
+  color: #cbd5e1;
+}
+
+/* ── Tags (row, collapsed only) ─────────────────────────── */
+
+.cellTags {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: opacity 0.2s ease;
+}
+
+/* Fade out tags + link when expanded — they move into the card */
+.entryOpen .cellTags,
+.entryOpen .cellLink {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.rowTag {
+  flex-shrink: 0;
+  padding: 0.1rem 0.5rem;
+  font-size: 0.72rem;
+  color: #475569;
+  background: #f1f5f9;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.rowTagMore {
+  flex-shrink: 0;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #94a3b8;
+  white-space: nowrap;
+}
+
+/* ── Link icon (collapsed only) ─────────────────────────── */
+
+.cellLink {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.2s ease;
+}
+
+.linkIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  color: #64748b;
+  border-radius: 5px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.linkIcon:hover {
+  color: var(--ifm-color-primary);
+  background: var(--ifm-color-emphasis-100);
+}
+
+/* ── Card (smooth expand) ───────────────────────────────── */
+
+.cardWrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cardWrapperOpen {
+  grid-template-rows: 1fr;
+}
+
+.cardInner {
+  overflow: hidden;
+  padding: 0 1.1rem 0 calc(18px + 0.85rem + 0.85rem);
+  transition: padding-bottom 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cardWrapperOpen .cardInner {
+  padding-bottom: 1.2rem;
+}
+
+/* ── Card top bar: tags + view source ───────────────────── */
+
+.cardTopBar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 0 0.65rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  margin-bottom: 0.1rem;
+}
+
+.cardTopTags {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.tag {
+  padding: 0.15rem 0.6rem;
+  font-size: 0.74rem;
+  color: #475569;
+  background: #ffffff;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.sourceLink {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.83rem;
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.sourceLink:hover {
+  text-decoration: underline;
+}
+
+/* ── Card body ──────────────────────────────────────────── */
+
+.authors {
+  margin: 0.75rem 0 0;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #64748b;
+}
+
+.block {
+  margin-top: 0.8rem;
+}
+
+.blockLabel {
+  display: inline-block;
+  margin-right: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ifm-color-primary);
+}
+
+.blockText {
+  display: inline;
+  margin: 0;
+  color: #334155;
+  line-height: 1.65;
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+
+@media (max-width: 960px) {
+  .row {
+    grid-template-columns: 18px minmax(0, 1fr) 140px 32px;
+    column-gap: 0.6rem;
+  }
+  .cellTags {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .row {
+    grid-template-columns: 18px minmax(0, 1fr) 32px;
+  }
+  .cellMeta {
+    display: none;
+  }
+}
+
+/* ── Dark mode ──────────────────────────────────────────── */
+
+[data-theme='dark'] .groupTitle {
+  color: #f1f5f9;
+}
+
+[data-theme='dark'] .groupDescription,
+[data-theme='dark'] .cellMeta,
+[data-theme='dark'] .authors {
+  color: #94a3b8;
+}
+
+[data-theme='dark'] .cellTitle {
+  color: #e5e7eb;
+}
+
+[data-theme='dark'] .entryOpen {
+  background: #0f172a;
+}
+
+[data-theme='dark'] .cardTopBar {
+  border-color: #1f2937;
+}
+
+[data-theme='dark'] .rowTag {
+  background: #1e293b;
+  border-color: #334155;
+  color: #cbd5e1;
+}
+
+[data-theme='dark'] .tag {
+  background: #111827;
+  border-color: #334155;
+  color: #cbd5e1;
+}
+
+[data-theme='dark'] .blockText {
+  color: #cbd5e1;
+}
+
+[data-theme='dark'] .linkIcon:hover {
+  background: #1f2937;
+}
+
+[data-theme='dark'] .list,
+[data-theme='dark'] .entry {
+  border-color: #1f2937;
+}
+
+[data-theme='dark'] .rowTagMore {
+  color: #64748b;
+}
