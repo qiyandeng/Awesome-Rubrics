@@ -79,7 +79,6 @@ export function PaperTable({papers = []}) {
           <tr>
             <th className={clsx(styles.th, styles.colIndex)}>#</th>
             <th className={clsx(styles.th, styles.colTitle)}>Paper</th>
-            <th className={clsx(styles.th, styles.colOrg)}>机构</th>
             <th className={clsx(styles.th, styles.colYear)}>发布时间</th>
             <th className={clsx(styles.th, styles.colUsage)}>如何使用 Rubrics</th>
             <th className={clsx(styles.th, styles.colStage)}>按模型训练阶段</th>
@@ -93,7 +92,11 @@ export function PaperTable({papers = []}) {
                 {idx + 1}
               </td>
               <td className={clsx(styles.td, styles.colTitle)} title={p.title}>
-                {p.href ? (
+                {p.anchor ? (
+                  <a href={`#${p.anchor}`} className={styles.titleLink}>
+                    {p.title}
+                  </a>
+                ) : p.href ? (
                   <a href={p.href} target="_blank" rel="noreferrer noopener"
                     className={styles.titleLink}>
                     {p.title}
@@ -101,9 +104,6 @@ export function PaperTable({papers = []}) {
                 ) : (
                   <span className={styles.titleText}>{p.title}</span>
                 )}
-              </td>
-              <td className={clsx(styles.td, styles.colOrg)}>
-                <span className={styles.orgText}>{p.org || '—'}</span>
               </td>
               <td className={clsx(styles.td, styles.colYear)}>
                 <span className={styles.yearText}>{p.year || ''}</span>

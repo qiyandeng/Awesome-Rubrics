@@ -31,6 +31,7 @@ export const papers = [
     year: "2025",
     usage: "",
     stage: "",
+    anchor: "healthbench",
   },
   {
     title: "PRBench: A Large-Scale Benchmark for Pull Request Review",
@@ -47,6 +48,7 @@ export const papers = [
     year: "2025",
     usage: "生成 DPO Pair",
     stage: "",
+    anchor: "adarubric",
   },
   {
     title: "Configurable Preference Optimization with Rubric-Based Evaluation",
@@ -71,6 +73,7 @@ export const papers = [
     year: "2025",
     usage: "Rubric as Feedback",
     stage: "",
+    anchor: "autorubric",
   },
   {
     title: "Alternating Reinforcement Learning from Human Feedback with Rubric-Driven Criteria",
@@ -95,6 +98,7 @@ export const papers = [
     year: "2024",
     usage: "Generate Rubrics",
     stage: "Test",
+    anchor: "essay-refinement",
   },
   {
     title: "SedarEval: Automated Evaluation using Self-Adaptive Rubrics",
@@ -103,6 +107,7 @@ export const papers = [
     year: "2025",
     usage: "Generate Rubrics",
     stage: "Test",
+    anchor: "sedareval",
   },
   {
     title: "LLM-RUBRIC: A Multidimensional, Calibrated Approach to Automated Evaluation",
@@ -111,6 +116,7 @@ export const papers = [
     year: "2023",
     usage: "Rubric Generator",
     stage: "Test",
+    anchor: "llm-rubric",
   },
   {
     title: "RubricEval: A Rubric-Based LLM Evaluation Framework",
@@ -168,6 +174,7 @@ Click any row in the table to open the source link directly; expand the cards be
 />
 
 <PaperCard
+  id="adarubric"
   title="AdaRubric: Task-Adaptive Rubric Generation"
   href="https://arxiv.org/abs/2503.03190"
   org="Alibaba Group"
@@ -203,6 +210,7 @@ Click any row in the table to open the source link directly; expand the cards be
   description="Rather than writing rubrics by hand, infer explicit criteria from preference pairs, judge data, or reward modeling signals.">
 
 <PaperCard
+  id="autorubric"
   title="Auto-Rubric: Learning to Extract Generalizable Criteria for Reward Modeling"
   href="https://scholar.google.com/scholar?q=Auto-Rubric+Generalizable+Criteria+Reward+Modeling"
   year="2024"
@@ -230,6 +238,7 @@ Click any row in the table to open the source link directly; expand the cards be
 />
 
 <PaperCard
+  id="essay-refinement"
   title="Automated Refinement of Essay Scoring Rubrics via Reflect-and-Revise"
   href="https://arxiv.org/abs/2407.11203"
   org="University College London"
@@ -258,6 +267,7 @@ Click any row in the table to open the source link directly; expand the cards be
   description="Rely on experts or expert-labeled rubrics, often supplemented by model-based generators for scale.">
 
 <PaperCard
+  id="healthbench"
   title="HealthBench: Evaluating Large Language Models Towards Improved Human Health"
   href="https://openai.com/index/healthbench/"
   authors="OpenAI"
@@ -289,6 +299,7 @@ Click any row in the table to open the source link directly; expand the cards be
 />
 
 <PaperCard
+  id="sedareval"
   title="SedarEval: Automated Evaluation using Self-Adaptive Rubrics"
   href="https://arxiv.org/abs/2504.00804"
   authors="Xiaohongshu"
@@ -319,6 +330,7 @@ Click any row in the table to open the source link directly; expand the cards be
   description="Rubric design differs substantially between open-ended general tasks and specialized professional domains.">
 
 <PaperCard
+  id="llm-rubric"
   title="LLM-RUBRIC: A Multidimensional, Calibrated Approach to Automated Evaluation"
   href="https://arxiv.org/abs/2310.14424"
   authors="Microsoft"

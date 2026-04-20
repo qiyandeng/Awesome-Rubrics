@@ -40,8 +40,7 @@
 /* ── Column widths ──────────────────────────────────────── */
 
 .colIndex { width: 36px; text-align: center; }
-.colTitle  { width: 280px; max-width: 280px; }
-.colOrg    { width: 140px; }
+.colTitle  { width: 340px; max-width: 340px; }
 .colYear   { width: 76px; }
 .colUsage  { width: 160px; }
 .colStage  { width: 150px; }
@@ -84,7 +83,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  max-width: 260px;
+  max-width: 320px;
   transition: color 0.15s ease;
 }
 
@@ -100,7 +99,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  max-width: 260px;
+  max-width: 320px;
 }
 
 .orgText {

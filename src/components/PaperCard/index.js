@@ -41,6 +41,7 @@ function ChevronIcon({open}) {
 }
 
 export function PaperCard({
+  id,
   title,
   href,
   authors,
@@ -63,7 +64,7 @@ export function PaperCard({
   };
 
   return (
-    <article className={clsx(styles.entry, open && styles.entryOpen)}>
+    <article id={id} className={clsx(styles.entry, open && styles.entryOpen)}>
       {/* ── Row (always visible) ── */}
       <div
         className={styles.row}
