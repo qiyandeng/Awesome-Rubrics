@@ -82,7 +82,7 @@ export function PaperTable({papers = []}) {
             <th className={clsx(styles.th, styles.colYear)}>Year</th>
             <th className={clsx(styles.th, styles.colUsage)}>How Rubrics Are Used</th>
             <th className={clsx(styles.th, styles.colStage)}>Model Stage</th>
-            <th className={clsx(styles.th, styles.colLink)}>链接</th>
+            <th className={clsx(styles.th, styles.colLink)}>Link</th>
           </tr>
         </thead>
         <tbody>
