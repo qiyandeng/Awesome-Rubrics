@@ -7,7 +7,7 @@ const COLOR_MAP = {
   'Rubric as Feedback':   'sky',
   'Rubric Generator':     'amber',
   'Rubric Select Ans':    'teal',
-  '生成 DPO Pair':         'orange',
+  'Generate DPO Pair':    'orange',
   'Training-Time':        'purple',
   'Test-Time Scaling':    'rose',
   'Test':                 'violet',
@@ -79,9 +79,9 @@ export function PaperTable({papers = []}) {
           <tr>
             <th className={clsx(styles.th, styles.colIndex)}>#</th>
             <th className={clsx(styles.th, styles.colTitle)}>Paper</th>
-            <th className={clsx(styles.th, styles.colYear)}>发布时间</th>
-            <th className={clsx(styles.th, styles.colUsage)}>如何使用 Rubrics</th>
-            <th className={clsx(styles.th, styles.colStage)}>按模型训练阶段</th>
+            <th className={clsx(styles.th, styles.colYear)}>Year</th>
+            <th className={clsx(styles.th, styles.colUsage)}>How Rubrics Are Used</th>
+            <th className={clsx(styles.th, styles.colStage)}>Model Stage</th>
             <th className={clsx(styles.th, styles.colLink)}>链接</th>
           </tr>
         </thead>
