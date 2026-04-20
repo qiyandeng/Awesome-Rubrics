@@ -42,6 +42,7 @@
 .entry {
   border-top: 1px solid var(--ifm-color-emphasis-200);
   transition: background 0.2s ease;
+  scroll-margin-top: 72px; /* offset for sticky navbar */
 }
 
 .entry:first-child {
